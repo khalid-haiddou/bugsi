@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
 </head>
 <body>
     <div class="login-container">
@@ -23,12 +23,15 @@
             </div>
 
             <form id="loginForm">
+                @csrf
+                
                 <div class="form-group">
                     <label class="form-label" for="email">البريد الإلكتروني</label>
                     <div class="form-input-wrapper">
                         <input 
                             type="email" 
-                            id="email" 
+                            id="email"
+                            name="email" 
                             class="form-input" 
                             placeholder="أدخل بريدك الإلكتروني"
                             required
@@ -43,7 +46,8 @@
                     <div class="form-input-wrapper">
                         <input 
                             type="password" 
-                            id="password" 
+                            id="password"
+                            name="password" 
                             class="form-input" 
                             placeholder="أدخل كلمة المرور"
                             required
@@ -57,7 +61,7 @@
 
                 <div class="form-options">
                     <div class="checkbox-wrapper">
-                        <input type="checkbox" id="remember">
+                        <input type="checkbox" id="remember" name="remember">
                         <label for="remember">تذكرني</label>
                     </div>
                     <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
@@ -69,11 +73,10 @@
             </form>
 
             <div class="signup-link">
-                ليس لديك حساب؟ <a href="#">سجل الآن</a>
+                ليس لديك حساب؟ <a href="{{ route('register') }}">سجل الآن</a>
             </div>
         </div>
     </div>
-
-
+    <script src="{{ asset('assets/js/login.js') }}"></script>
 </body>
 </html>

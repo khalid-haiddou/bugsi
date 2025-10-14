@@ -8,9 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('assets/css/contact.css') }}">
 </head>
 <body>
+    @include('layouts.header')
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -182,7 +183,6 @@
             </div>
         </div>
     </section>
-
-
+    <script src="{{ asset('assets/js/contact.js') }}"></script>
 </body>
 </html>

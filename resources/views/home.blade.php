@@ -8,9 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
 </head>
 <body>
+    @include('layouts.header')
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -447,7 +448,6 @@
             <a href="/shop" class="btn" style="background: white; color: var(--primary-color);">تسوق الآن</a>
         </div>
     </section>
-
-
+    <script src="{{ asset('assets/js/home.js') }}"></script>
 </body>
 </html>

@@ -207,7 +207,6 @@
             <a href="/shop" class="btn">تسوق الآن</a>
         </div>
     </section>
-
     <script src="{{ asset('assets/js/about.js') }}"></script>
 </body>
 </html>

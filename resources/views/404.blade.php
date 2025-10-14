@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="{{ asset('assets/css/404.css') }}">
 </head>
 <body>
     @include('layouts.header')
@@ -41,6 +41,6 @@
         </div>
     </div>
 
-
+    <script src="{{ asset('assets/js/404.js') }}"></script>
 </body>
 </html>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>إدارة الفئات - Bugsi Admin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +42,7 @@
                         <div class="stat-icon blue">📂</div>
                     </div>
                     <div class="stat-label">إجمالي الفئات</div>
-                    <div class="stat-value">12</div>
+                    <div class="stat-value">{{ $totalCategories }}</div>
                 </div>
 
                 <div class="stat-card">
@@ -49,7 +50,7 @@
                         <div class="stat-icon green">🛍️</div>
                     </div>
                     <div class="stat-label">إجمالي المنتجات</div>
-                    <div class="stat-value">156</div>
+                    <div class="stat-value">{{ $totalProducts }}</div>
                 </div>
 
                 <div class="stat-card">
@@ -57,7 +58,9 @@
                         <div class="stat-icon orange">⭐</div>
                     </div>
                     <div class="stat-label">الفئة الأكثر مبيعاً</div>
-                    <div class="stat-value" style="font-size: 18px;">الصحة والعافية</div>
+                    <div class="stat-value" style="font-size: 18px;">
+                        {{ $topCategory ? $topCategory->name : 'لا توجد بيانات' }}
+                    </div>
                 </div>
             </div>
 
@@ -82,23 +85,27 @@
                 <button class="close-btn" onclick="closeCategoryModal()">×</button>
             </div>
 
-            <form id="categoryForm">
+            <form id="categoryForm" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" id="categoryId" name="category_id">
+                <input type="hidden" id="methodField" name="_method">
+                
                 <div class="form-group">
                     <label class="form-label">اسم الفئة *</label>
-                    <input type="text" class="form-input" id="categoryName" placeholder="مثال: الصحة والعافية" required>
+                    <input type="text" class="form-input" id="categoryName" name="name" placeholder="مثال: الصحة والعافية" required>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">وصف الفئة</label>
-                    <textarea class="form-textarea" id="categoryDescription" placeholder="وصف مختصر للفئة..."></textarea>
+                    <textarea class="form-textarea" id="categoryDescription" name="description" placeholder="وصف مختصر للفئة..."></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">اختر أيقونة الفئة</label>
+                    <label class="form-label">اختر أيقونة الفئة *</label>
                     <div class="icon-selector" id="iconSelector">
                         <!-- Icons will be inserted here -->
                     </div>
-                    <input type="hidden" id="selectedIcon" value="">
+                    <input type="hidden" id="selectedIcon" name="icon" value="" required>
                 </div>
 
                 <div class="form-group">
@@ -107,7 +114,7 @@
                         <div class="image-upload-icon">📷</div>
                         <div class="image-upload-text">انقر لرفع صورة الفئة</div>
                     </div>
-                    <input type="file" id="categoryImage" accept="image/*" style="display: none;" onchange="previewCategoryImage(event)">
+                    <input type="file" id="categoryImage" name="image" accept="image/*" style="display: none;" onchange="previewCategoryImage(event)">
                     <div class="image-preview-container" id="imagePreview">
                         <img id="imageDisplay" class="category-image-preview">
                         <button type="button" class="remove-image-btn" onclick="removeCategoryImage()">×</button>
@@ -118,7 +125,7 @@
                     <button type="button" class="btn btn-secondary" onclick="closeCategoryModal()">
                         إلغاء
                     </button>
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
                         <span>💾</span>
                         حفظ الفئة
                     </button>
@@ -126,6 +133,11 @@
             </form>
         </div>
     </div>
+    
+    <script>
+        // Pass categories data to JavaScript
+        window.categoriesData = @json($categories);
+    </script>
     <script src="{{ asset('assets/js/admin/categories.js') }}"></script>
 </body>
 </html>
