@@ -1,0 +1,48 @@
+        // Sticky header effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Toggle search overlay
+        function toggleSearch() {
+            const overlay = document.getElementById('searchOverlay');
+            overlay.classList.toggle('active');
+            if (overlay.classList.contains('active')) {
+                document.querySelector('.search-input').focus();
+            }
+        }
+
+        // Close search on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('searchOverlay').classList.remove('active');
+                document.getElementById('mobileNav').classList.remove('active');
+                document.querySelector('.mobile-menu-toggle').classList.remove('active');
+            }
+        });
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            mobileNav.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+
+        // Close search overlay on click outside
+        document.getElementById('searchOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                toggleSearch();
+            }
+        });
+
+        // Update cart badge (for demo)
+        // In real app: fetch from backend/localStorage
+        function updateCartBadge(count) {
+            document.querySelector('.cart-badge').textContent = count;
+        }

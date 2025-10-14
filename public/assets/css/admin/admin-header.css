@@ -1,0 +1,151 @@
+
+    /* public/assets/css/header.css */
+
+.header {
+    background: #fff;
+    padding: 20px 30px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Header Right Section */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Search Box */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 10px 20px;
+    border-radius: 25px;
+    gap: 10px;
+    min-width: 300px;
+}
+
+.search-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    width: 100%;
+}
+
+/* Header Actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f8f9fa;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.icon-btn:hover {
+    background: rgba(14, 158, 255, 0.1);
+    color: #0e9eff;
+}
+
+/* Badges */
+.icon-btn .badge {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    background: #f44336;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* User Profile */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.user-profile:hover {
+    background: #f8f9fa;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0e9eff 0%, #0077cc 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.user-info {
+    text-align: right;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.user-role {
+    font-size: 12px;
+    color: #666;
+}
+
+/* Mobile adjustments */
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .header {
+        padding: 15px 20px;
+    }
+}
+

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer - Bugsi Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0e9eff;
+            --primary-dark: #0077cc;
+            --text-dark: #1a1a1a;
+            --text-gray: #666;
+            --white: #ffffff;
+            --gradient: linear-gradient(135deg, #0e9eff 0%, #0077cc 100%);
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #f8f9fa;
+            padding-bottom: 0;
+        }
+
+        /* Demo Content */
+        .demo-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .demo-content h1 {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            margin-top: auto;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: var(--gradient);
+            padding: 50px 20px;
+        }
+
+        .newsletter-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .newsletter-title {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .newsletter-subtitle {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        .newsletter-form {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            display: flex;
+            gap: 12px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 18px 24px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .newsletter-input:focus {
+            transform: scale(1.02);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .newsletter-btn {
+            padding: 18px 40px;
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 15px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Main Footer */
+        .footer-main {
+            padding: 60px 20px 40px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        /* Footer About */
+        .footer-about {
+            padding-left: 20px;
+        }
+
+        .footer-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo-icon {
+            width: 55px;
+            height: 55px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(14, 158, 255, 0.3);
+        }
+
+        .footer-logo-icon svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .footer-logo-text {
+            font-size: 32px;
+            font-weight: 900;
+            color: white;
+        }
+
+        .footer-description {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .social-btn:hover {
+            background: var(--gradient);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(14, 158, 255, 0.4);
+        }
+
+        /* Footer Column */
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-column-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-column-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .footer-link {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 15px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
+            padding-right: 8px;
+        }
+
+        .footer-link::before {
+            content: '←';
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .footer-link:hover::before {
+            opacity: 1;
+        }
+
+        /* Contact Info */
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 20px;
+            color: #aaa;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(14, 158, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-details a {
+            color: #aaa;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .contact-details a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Payment Methods */
+        .payment-methods {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .payment-badge {
+            background: rgba(255,255,255,0.05);
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #aaa;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            background: rgba(0,0,0,0.3);
+            padding: 25px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-bottom-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .copyright strong {
+            color: var(--primary-color);
+            font-weight: 800;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .footer-bottom-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 55px;
+            height: 55px;
+            background: var(--gradient);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(14, 158, 255, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 30px rgba(14, 158, 255, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+
+            .footer-about {
+                grid-column: 1 / -1;
+                padding-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .newsletter-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .newsletter-title {
+                justify-content: center;
+                font-size: 28px;
+            }
+
+            .newsletter-form {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .newsletter-btn {
+                width: 100%;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .footer-logo-container {
+                justify-content: center;
+            }
+
+            .footer-description {
+                text-align: center;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-column-title {
+                text-align: center;
+            }
+
+            .footer-column-title::after {
+                right: 50%;
+                transform: translateX(50%);
+            }
+
+            .footer-links {
+                align-items: center;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .payment-methods {
+                justify-content: center;
+            }
+
+            .footer-bottom-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                left: 20px;
+            }
+
+            .demo-content h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Demo Content -->
+    <div class="demo-content">
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Newsletter Section -->
+        <div class="newsletter-section">
+            <div class="newsletter-container">
+                <div class="newsletter-content">
+                    <h3 class="newsletter-title">
+                        <span>📬</span>
+                        اشترك في نشرتنا البريدية
+                    </h3>
+                    <p class="newsletter-subtitle">
+                        احصل على آخر العروض والمنتجات الجديدة مباشرة على بريدك الإلكتروني
+                    </p>
+                </div>
+                <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                    <input 
+                        type="email" 
+                        class="newsletter-input" 
+                        placeholder="أدخل بريدك الإلكتروني..."
+                        required
+                    >
+                    <button type="submit" class="newsletter-btn">
+                        اشترك الآن ✨
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Main Footer -->
+        <div class="footer-main">
+            <div class="footer-container">
+                <!-- About Section -->
+                <div class="footer-about">
+                    <div class="footer-logo-container">
+                        <div class="footer-logo-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="white"/>
+                                <path d="M2 17L12 22L22 17V12L12 17L2 12V17Z" fill="white" opacity="0.7"/>
+                            </svg>
+                        </div>
+                        <div class="footer-logo-text">Bugsi</div>
+                    </div>
+                    <p class="footer-description">
+                        متجرك الموثوق للمنتجات الصحية الطبيعية في المغرب. نقدم منتجات عالية الجودة مع توصيل سريع وآمن لجميع المدن المغربية. رضاك هو هدفنا الأول.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-btn" title="فيسبوك">f</a>
+                        <a href="#" class="social-btn" title="إنستغرام">📷</a>
+                        <a href="#" class="social-btn" title="تويتر">🐦</a>
+                        <a href="#" class="social-btn" title="واتساب">💬</a>
+                        <a href="#" class="social-btn" title="يوتيوب">▶️</a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="/" class="footer-link">الرئيسية</a></li>
+                        <li><a href="/shop" class="footer-link">المتجر</a></li>
+                        <li><a href="/about" class="footer-link">من نحن</a></li>
+                        <li><a href="/contact" class="footer-link">تواصل معنا</a></li>
+                        <li><a href="/blog" class="footer-link">المدونة</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">خدمة العملاء</h4>
+                    <ul class="footer-links">
+                        <li><a href="/account" class="footer-link">حسابي</a></li>
+                        <li><a href="/orders" class="footer-link">تتبع الطلب</a></li>
+                        <li><a href="/shipping" class="footer-link">الشحن والتوصيل</a></li>
+                        <li><a href="/returns" class="footer-link">سياسة الإرجاع</a></li>
+                        <li><a href="/faq" class="footer-link">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">تواصل معنا</h4>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            الدار البيضاء، المغرب<br>
+                            شارع محمد الخامس
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <a href="tel:+212XXXXXXXXX">+212 XXX-XXXXXX</a><br>
+                            <a href="tel:+212YYYYYYYYY">+212 YYY-YYYYYY</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <a href="mailto:info@bugsi.shop">info@bugsi.shop</a><br>
+                            <a href="mailto:support@bugsi.shop">support@bugsi.shop</a>
+                        </div>
+                    </div>
+
+                    <div class="payment-methods">
+                        <div class="payment-badge">💵 نقداً</div>
+                        <div class="payment-badge">📦 عند التسليم</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div class="copyright">
+                    © 2025 <strong>Bugsi Shop</strong>. جميع الحقوق محفوظة.
+                </div>
+                <ul class="footer-bottom-links">
+                    <li><a href="/privacy">سياسة الخصوصية</a></li>
+                    <li><a href="/terms">الشروط والأحكام</a></li>
+                    <li><a href="/sitemap">خريطة الموقع</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        ↑
+    </button>
+
+    <script>
+        // Newsletter Form Handler
+        function handleNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            
+            // في التطبيق الحقيقي: إرسال البيانات للـ Backend
+            alert('شكراً لاشتراكك! سنرسل لك آخر العروض على: ' + email);
+            event.target.reset();
+        }
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Smooth scroll for footer links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
