@@ -61,7 +61,11 @@
             <!-- Products Grid -->
             <div class="products-grid" id="productsGrid">
                 @forelse($productsData as $product)
-                <div class="product-card fade-in" data-product-id="{{ $product['id'] }}">
+                <div class="product-card fade-in clickable-card" 
+                     data-product-id="{{ $product['id'] }}"
+                     data-product-slug="{{ $product['slug'] }}"
+                     onclick="navigateToProduct('{{ $product['slug'] }}')">
+                     
                     @if($product['has_discount'])
                         <span class="product-badge sale">خصم {{ $product['discount_percentage'] }}%</span>
                     @elseif($product['is_new'])
@@ -93,7 +97,10 @@
                                     <span class="price">{{ $product['price'] }} MAD</span>
                                 @endif
                             </div>
-                            <button class="add-to-cart-btn" data-product-id="{{ $product['id'] }}">
+                            <button class="add-to-cart-btn" 
+                                    data-product-id="{{ $product['id'] }}"
+                                    onclick="event.stopPropagation(); handleAddToCartClick(this);"
+                                    {{ $product['stock'] <= 0 ? 'disabled' : '' }}>
                                 @if($product['stock'] > 0)
                                     أضف للسلة
                                 @else
@@ -128,6 +135,42 @@
             total: {{ $products->total() }},
             perPage: {{ $products->perPage() }}
         };
+
+        // Product navigation function
+        function navigateToProduct(slug) {
+            if (slug) {
+                window.location.href = `/product/${slug}`;
+            }
+        }
+
+        // Handle add to cart with event stopping
+        function handleAddToCartClick(button) {
+            if (button.disabled) return;
+            
+            const productId = button.dataset.productId;
+            const originalText = button.textContent;
+            const originalBackground = button.style.background;
+            
+            // Show success state
+            button.textContent = '✓ تمت الإضافة';
+            button.style.background = '#00c853';
+            button.disabled = true;
+
+            // Log for debugging (replace with actual cart logic)
+            console.log('Add to cart - Product ID:', productId);
+            
+            // Show notification if function exists
+            if (typeof showNotification === 'function') {
+                showNotification('تم إضافة المنتج إلى السلة بنجاح!', 'success');
+            }
+
+            // Reset button after delay
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = originalBackground;
+                button.disabled = false;
+            }, 1500);
+        }
     </script>
     <script src="{{ asset('assets/js/shop.js') }}"></script>
 </body>

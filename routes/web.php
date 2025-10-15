@@ -18,10 +18,11 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 Route::get('/shop', [App\Http\Controllers\ShopController::class, 'index'])->name('shop');
 Route::get('/shop/filter', [App\Http\Controllers\ShopController::class, 'filter'])->name('shop.filter');
 
-// Product detail route (for later)
-Route::get('/product/{slug}', function($slug) {
-    return "Product: " . $slug;
-})->name('product.show');
+// Single product route - KEEP ONLY THIS ONE
+Route::get('/product/{slug}', [App\Http\Controllers\ProductController::class, 'show'])->name('product.show');
+
+// Cart routes
+Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart');
 
 Route::get('/', function () {
     return view('welcome');
@@ -51,4 +52,3 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/orders', fn() => 'Orders - Coming Soon')->name('orders.index');
     Route::get('/stocks', fn() => 'Stocks - Coming Soon')->name('stocks.index');
 });
-
