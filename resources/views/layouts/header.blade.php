@@ -112,6 +112,7 @@
             <button class="search-submit">🔍</button>
         </div>
     </div>
+    <script src="{{ asset('assets/js/cart.js') }}"></script>
     <script src="{{ asset('assets/js/header.js') }}"></script>
 </body>
 </html>
