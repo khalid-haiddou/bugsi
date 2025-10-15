@@ -93,6 +93,7 @@
         </div>
     </section>
     
+    <!-- Load cart manager first, then cart page script -->
     <script src="{{ asset('assets/js/cart.js') }}"></script>
 </body>
 </html>

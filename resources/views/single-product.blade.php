@@ -338,6 +338,8 @@
         // Pass product data to JavaScript
         window.productData = @json($productData);
     </script>
+    <!-- Load cart manager first, then single product script -->
+    <script src="{{ asset('assets/js/cart-manager.js') }}"></script>
     <script src="{{ asset('assets/js/single-product.js') }}"></script>
 </body>
 </html>
