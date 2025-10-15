@@ -41,8 +41,25 @@
             }
         });
 
-        // Update cart badge (for demo)
-        // In real app: fetch from backend/localStorage
+        // Update cart badge from cart manager
         function updateCartBadge(count) {
-            document.querySelector('.cart-badge').textContent = count;
+            const badge = document.querySelector('.cart-badge');
+            if (badge) {
+                badge.textContent = count;
+                badge.style.display = count > 0 ? 'block' : 'none';
+            }
         }
+
+        // Initialize cart badge on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.cartManager) {
+                window.cartManager.updateCartBadge();
+            }
+        });
+
+        // Listen for cart updates
+        window.addEventListener('cartUpdated', function() {
+            if (window.cartManager) {
+                window.cartManager.updateCartBadge();
+            }
+        });

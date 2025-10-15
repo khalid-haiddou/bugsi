@@ -30,6 +30,13 @@ class CartManager {
         try {
             localStorage.setItem(this.cartKey, JSON.stringify(this.cart));
             this.updateCartBadge();
+            // Dispatch event for other parts of the app
+            window.dispatchEvent(new CustomEvent('cartUpdated', { 
+                detail: { 
+                    itemCount: this.getTotalItems(),
+                    cart: this.cart 
+                } 
+            }));
         } catch (error) {
             console.error('Error saving cart:', error);
         }
