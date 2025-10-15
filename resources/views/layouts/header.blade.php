@@ -113,5 +113,6 @@
         </div>
     </div>
     <script src="{{ asset('assets/js/header.js') }}"></script>
+    <script src="{{ asset('assets/js/cart.js') }}"></script>
 </body>
 </html>
